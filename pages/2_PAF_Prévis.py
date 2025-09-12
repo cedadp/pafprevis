@@ -70,12 +70,22 @@ if uploaded_file is not None:
         df = pd.read_excel('courbes_presentation_PAF.xlsx', t)
         return df   
    
-    col1, col2 = st.columns(2)
-    with col1:
-         debut = st.date_input("Date de début :",min_value=df_l_date.min(),max_value= df_l_date.max() , key=10)
-    with col2:    
-         fin = st.date_input("Date de fin :",value=debut,min_value=df_l_date.min(),max_value= df_l_date.max() , key=2) 
+    datemini = pd.to_datetime(l_date).min()
+    datemaxi = pd.to_datetime(l_date).max()
     
+    
+    
+    
+    
+    col1, col2 = st.columns(2)
+    # with col1:
+    #     debut = st.date_input("Date de début :", value = min ( pd.to_datetime(datemini + timedelta(days=2)), datemini) , min_value=datemini ,max_value=  datemaxi , key=10)
+    # with col2:    
+    #     fin = st.date_input("Date de fin :", value =  min ( pd.to_datetime(debut + timedelta(days=10)),datemaxi) ,   min_value = debut, max_value = datemaxi, key=2)
+    with col1:
+        debut = st.date_input("Date de début :" , min_value=datemini ,max_value=  datemaxi , key=10)
+    with col2:    
+        fin = st.date_input("Date de fin :",  value =  min ( pd.to_datetime(debut + timedelta(days=10)),datemaxi) , min_value = debut, max_value = datemaxi, key=2)
     start_date = pd.to_datetime(debut)
     end_date = pd.to_datetime(fin) 
     
@@ -473,4 +483,5 @@ if uploaded_file is not None:
 
         st.info("Export PAF créé avec succès !" + "\n\nPour lancer une nouvelle étude, lancer uniquement 'CHOISIR LES DATES'")
         
+
 
