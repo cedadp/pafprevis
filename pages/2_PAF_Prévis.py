@@ -25,7 +25,7 @@ if uploaded_file is not None:
     @st.cache_data(ttl=90)
     def df():
         with st.spinner('Chargemement du Programme complet ...'):
-            df = pd.read_excel(uploaded_file, "pgrm_complet")
+            df = pd.read_excel(uploaded_file, "pgrm_complet", converters={'Local Date': lambda x: pd.to_datetime(x, dayfirst=True, errors = "coerce")})
             st.success("Programme complet chargé !")
         return df
 
@@ -473,3 +473,4 @@ if uploaded_file is not None:
 
         st.info("Export PAF créé avec succès !" + "\n\nPour lancer une nouvelle étude, lancer uniquement 'CHOISIR LES DATES'")
         
+
