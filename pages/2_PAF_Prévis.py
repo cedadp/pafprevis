@@ -459,7 +459,7 @@ if uploaded_file is not None:
         my_bar2.progress(98)
 
         #directory_exp = "export_paf_du_" + str(start_date.date()) + "_au_" + str(end_date.date()) + ".xlsx"
-       if "REPLAY" in uploaded_file.name.upper():
+        if "REPLAY" in uploaded_file.name.upper():
                     directory_exp = "export_pif_du_" + str(start_date.date()) + "_au_" + str(end_date.date()) + "_REPLAY.xlsx"
         else:
                     directory_exp = "export_pif_du_" + str(start_date.date()) + "_au_" + str(end_date.date()) + ".xlsx"
@@ -490,6 +490,7 @@ if uploaded_file is not None:
 
         st.info("Export PAF créé avec succès !" + "\n\nPour lancer une nouvelle étude, lancer uniquement 'CHOISIR LES DATES'")
         
+
 
 
 
