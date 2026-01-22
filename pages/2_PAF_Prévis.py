@@ -17,7 +17,7 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 st.title("🛂 PAF Prévis")
-st.divide()
+st.divider()
 st.subheader("Programme complet :")
 
 
@@ -491,6 +491,7 @@ if uploaded_file is not None:
 
         st.info("Export PAF créé avec succès !" + "\n\nPour lancer une nouvelle étude, lancer uniquement 'CHOISIR LES DATES'")
         
+
 
 
 
